@@ -123,20 +123,19 @@ private_key_json = 'sa_{}_privatekey.json'.format(service_account_body['serviceA
 if __name__ == '__main__':
 
     credentials = create_credentials()
-    # create_project(project_body, credentials)
-    # wait_operation('cloudresourcemanager', 'v1', credentials, project_body['projectId'], 5)
+    create_project(project_body, credentials)
+    wait_operation('cloudresourcemanager', 'v1', credentials, project_body['projectId'], 5)
 
-    # enable_billing(credentials, billing_body)
+    enable_billing(credentials, billing_body)
+    enable_service(service_to_enable, credentials, enable_service_body)
 
-    # enable_service(service_to_enable, credentials, enable_service_body)
+    create_k8s(body=k8s_body, projectId=project_body['projectId'], zone=k8s_body['cluster']['location'], credentials=credentials)
 
-    # create_k8s(body=k8s_body, projectId=project_body['projectId'], zone=k8s_body['cluster']['location'], credentials=credentials)
-
-    create_service_account(projectId=project_body['projectId'], body=service_account_body, credentials=credentials)
-    grant_role_sa(projectId=project_body['projectId'], body=grant_role_sa_body, credentials=credentials)
-    create_key_sa(resource_name='projects/-/serviceAccounts/{}@{}.iam.gserviceaccount.com'.format(
-                                  service_account_body['serviceAccount']['displayName'], 
-                                  project_body['projectId']), 
-                                  credentials=credentials,
-                                  name_file=private_key_json)
+    # create_service_account(projectId=project_body['projectId'], body=service_account_body, credentials=credentials)
+    # grant_role_sa(projectId=project_body['projectId'], body=grant_role_sa_body, credentials=credentials)
+    # create_key_sa(resource_name='projects/-/serviceAccounts/{}@{}.iam.gserviceaccount.com'.format(
+    #                               service_account_body['serviceAccount']['displayName'], 
+    #                               project_body['projectId']), 
+    #                               credentials=credentials,
+    #                               name_file=private_key_json)
     
