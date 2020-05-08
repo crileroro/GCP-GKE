@@ -1,0 +1,3 @@
+python-env-gcp
+*.json*
+**/__pycache__
