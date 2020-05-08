@@ -52,7 +52,9 @@ This newly created file has the following content:
 `GoogleCredentials` will take care of authentication via **Oauth2**. This will search for the JSON file
 named *application_default_credentials.json* in the directory described above.
 
-2. Run the Python script `create-project-k8s.py`.
+#### Run Python script to create GCP resources
+
+1. Run the Python script `create-project-k8s.py`.
 ```sh
 $python create-project-k8s.py
 ```
