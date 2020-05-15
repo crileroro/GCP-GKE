@@ -39,7 +39,7 @@ $pip install -r requirements.txt
 ```sh
 $gcloud auth application-default login
 ```
-After you have given consent, you can your credentials in `"~/.config/gcloud/application_default_credentials.json`.
+After you have given consent, you can find your credentials in `"~/.config/gcloud/application_default_credentials.json`.
 
 This newly created file has the following content:
 ```json
