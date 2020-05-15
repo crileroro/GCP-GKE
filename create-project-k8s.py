@@ -9,7 +9,7 @@ from container_api.kubernetes import create_k8s
 from iam.service_account import create_service_account, grant_role_sa, get_iam_policy, create_key_sa
 
 project_body = {
-        'projectId': 'k8s-cluster-shoppingapp',
+        'projectId': 'k8s-cluster-shoppingapp1',
         'name': 'prd-shopping-app',
         'labels': {
         'type-project': 'k8s-cluster',
@@ -37,7 +37,7 @@ k8s_body = {
     'masterAuth': {
       'clientCertificateConfig': {}
     },
-    'network': 'projects/k8s-cluster-shoppingapp/global/networks/default',
+    'network': 'projects/{}/global/networks/default'.format(project_body['projectId']),
     'addonsConfig': {
       'httpLoadBalancing': {},
       'horizontalPodAutoscaling': {},
@@ -45,7 +45,7 @@ k8s_body = {
         'disabled': 'true'
       }
     },
-    'subnetwork': 'projects/k8s-cluster-shoppingapp/regions/europe-west2/subnetworks/default',
+    'subnetwork': 'projects/{}/regions/europe-west2/subnetworks/default'.format(project_body['projectId']),
     'nodePools': [
       {
         'name': 'node-pool-1',
@@ -75,7 +75,7 @@ k8s_body = {
           'autoUpgrade': 'true',
           'autoRepair': 'true'
         },
-        'version': '1.14.10-gke.27'
+        'version': '1.14.10-gke.36'
       }
     ],
     'resourceLabels': {
@@ -94,7 +94,7 @@ k8s_body = {
     'databaseEncryption': {
       'state': 'DECRYPTED'
     },
-    'initialClusterVersion': '1.14.10-gke.27',
+    'initialClusterVersion': '1.14.10-gke.36',
     'location': 'europe-west2-a'
   }
 }
