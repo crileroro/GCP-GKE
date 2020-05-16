@@ -64,7 +64,8 @@ This script will create the resources described above. Yo can find the service a
 
 #### 4. Configure gcloud, Helm and Ingress-Nginx
 We will need to make an extra configuration on our cluster.
-In order to expose the app to te internet, we will configure Ingress-Nginx. To do so, run the script `config_gcloud.sh`.
+First, change the name of your GCP project and the k8s cluster in both files `config_gcloud.sh` and  `install_helm.sh`.
+In order to expose the app to the internet, we will configure Ingress-Nginx. To do so, run the script `config_gcloud.sh`.
 ```sh
 $ ./config_gcloud.sh
 ```
