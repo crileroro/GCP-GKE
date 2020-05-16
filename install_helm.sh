@@ -2,7 +2,7 @@
 printf '\n************************\nSet up gcloud\n************************\n'
 
 printf '  --> Setting up project in gcloud config ...\n'
-gcloud config set project k8s-cluster-shoppingapp
+gcloud config set project k8s-cluster-shoppingapp1
 
 printf '  --> Setting up zone in gcloud config ...\n'
 gcloud config set compute/zone europe-west2-a
